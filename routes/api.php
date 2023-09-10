@@ -5,6 +5,8 @@ use App\Http\Controllers\GenreController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\MovieDirectorController;
 use App\Http\Controllers\UserMovieController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\API\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -43,6 +45,6 @@ Route::group(['middleware'=>['auth:sanctum']], function(){
     Route::get('/profile', function(Request $request){
         return auth()->user();
     });
-    Route::resource('movies', FilmController::class)->only(['update','store','destroy']);
+    Route::resource('movies', MovieController::class)->only(['update','store','destroy']);
     Route::post('/logout', [AuthController::class, 'logout']);
 });

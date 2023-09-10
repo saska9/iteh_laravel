@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('movie', function (Blueprint $table) {
+        Schema::table('movies', function (Blueprint $table) {
             $table->foreignId('user_id');
         });
     }
@@ -25,7 +25,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('movie', function (Blueprint $table) {
+        Schema::table('movies', function (Blueprint $table) {
             $table->dropForeign('user_id');
         });
     }
